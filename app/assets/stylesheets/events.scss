@@ -1,0 +1,39 @@
+// Place all the styles related to the Events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// .fc-day-header.fc-widget-header {
+//   border-radius: 20px;
+// }
+
+.fc-unthemed th, .fc-unthemed td, .fc-unthemed thead, .fc-unthemed tbody, .fc-unthemed .fc-divider, .fc-unthemed .fc-row, .fc-unthemed .fc-content, .fc-unthemed .fc-popover, .fc-unthemed .fc-list-view, .fc-unthemed .fc-list-heading td {
+  // border-color: rgb(203, 231, 203) !important;
+  border-radius: 10px !important;
+}
+
+// .fc-day-grid-event.fc-h-event.fc-event.fc-start.fc-end.wpfc-more
+// {
+// background: #ffffff !important;
+// border-color: #00469e !important;
+// }
+
+// .fc-day .fc-widget-content td {
+//   border-color: green;
+//   border-radius: 30px;
+// }
+
+// .fc td, .fc th {
+//   border-style: none !important;
+//   border-color: green;
+//   border-radius: 20px;
+// }
+
+.color {
+  // background: rgb(39, 41, 39) !important;
+  border: solid rgb(222, 250, 222);
+  border-width: 1em;
+  border-radius: 40px;
+  padding: 25px;
+  z-index: -1;
+}

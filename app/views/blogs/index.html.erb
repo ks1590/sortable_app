@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>Email</th>
+      <th>Email</th>  
       <th>Title</th>
       <th>Content</th>
       <th colspan="3"></th>
@@ -23,8 +23,10 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
-
 <%= link_to 'New Blog', new_blog_path %>
 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+
+<div class="color">
+  <div id="calendar"></div>
+</div>
