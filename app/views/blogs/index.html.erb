@@ -28,5 +28,8 @@
 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
 
 <div class="color">
-  <div id="calendar"></div>
+  <%= month_calendar do |date| %>
+    <%= date %>
+  <% end %>
+  <%# <div id="calendar"></div> %>
 </div>

@@ -6,10 +6,6 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
-  # GET /events/1 or /events/1.json
-  def show
-  end
-
   # GET /events/new
   def new
     @event = Event.new
@@ -19,18 +15,34 @@ class EventsController < ApplicationController
   def edit
   end
 
-  # POST /events or /events.json
-  def create
-    @event = Event.new(event_params)
-
+def show
+    @event = Event.all
+    # render :json => @event
     respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: "Event was successfully created." }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+      format.json {
+        render json:
+        @event.to_json(
+          only: [:title, :start, :end]
+        )
+      }
+    end
+  end
+
+  def create
+    event = Event.new
+    event.attributes = {
+      title: params[:title],
+      start: params[:start],
+      end: params[:end],
+    }
+    event.save
+    respond_to do |format|
+      format.json {
+        render json:
+        @event.to_json(
+          only: [:title, :start, :end]
+        )
+      }
     end
   end
 

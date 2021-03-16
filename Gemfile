@@ -7,6 +7,8 @@ gem 'jquery-rails', '4.3.3'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
+gem 'simple_calendar'
+
 gem 'devise'
 gem 'devise-i18n'
 
