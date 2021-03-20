@@ -21,6 +21,11 @@
     <%= form.text_area :content %>
   </div>
 
+  <div class="field">
+    <%= form.label :payment_id %>
+    <%= form.collection_select :payment_id, Payment.all, :id, :name, {prompt: "選択してください"} %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
