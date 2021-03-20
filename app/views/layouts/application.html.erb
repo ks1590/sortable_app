@@ -10,6 +10,7 @@
   </head>
 
   <body>
+      <div class="wrapper">
     <% if user_signed_in? %>
       <%= link_to "ブログ投稿", new_blog_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
@@ -24,6 +25,8 @@
     <% if alert %>
       <p class="alert"><%= alert %></p>
     <% end %>
-    <%= yield %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
