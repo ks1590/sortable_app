@@ -15,3 +15,25 @@
  *= require_self
  *= require fullcalendar
  */
+
+@import "bootstrap";
+
+.modal-content {
+  border-radius: 20px;
+}
+
+.modal-header {
+  background: linear-gradient(to right top, #898b8b, #b2b4b4);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.modal-title {
+  color: white;
+  font-weight: 700;
+}
+
+// .modal-footer {
+//   background: linear-gradient(to right top, #b2b4b4, #898b8b);
+//   border-radius: 20px; 
+// }

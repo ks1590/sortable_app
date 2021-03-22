@@ -1,0 +1,6 @@
+<% if @status == 'success' %>
+    $("ul").append("<%= j(render("li", blog: @blog)) %>");
+<%  elsif @status == 'fail' %>
+    alert('error!');
+<% end %>
+$("#blog-modal").modal("hide");

@@ -1,6 +1,7 @@
 
 <%= render 'nav' %>
 <main class="main">
+<%# <%= render 'modal' %>
   <section class="section">
     <header class="section__header">
       <h2 class="section__title">Projects</h2>
@@ -20,48 +21,44 @@
             />
           </svg>
         </button>
-        <button
+        <%# <button
           class="section__button section__button--painted focus--box-shadow"
           type="button"
           aria-label="Add New project"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            role="presentation"
-          >
-            <path
-              d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"
-            />
-          </svg>
-        </button>
+        </button> %>
+        <%# <button type="button" class="section__button section__button--painted focus--box-shadow" data-toggle="modal" data-target="#blog-modal" data-whatever="@mdo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="presentation"><path d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z" />
+        </svg></button> %>
+        <%= link_to 'New Blog', new_blog_path, remote: true, class: "btn btn-outline-secondary" %>
+        <div id="blog-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
       </div>
-    </header>
-    <% @blogs.each do |blog| %>
+    </header>    
       <ul class="project">
-        <li class="project__item">
-          <div class="project__link focus--box-shadow">
-            <div class="project__wrapper">
-              <div class="project__element project__inform">
-                <%= blog.user.email %>
-              </div>
-              <div class="project__element project__inform">
-                <%= blog.title %>
-              </div>
-              <div class="project__element project__inform">
-                <%= blog.content %>
-              </div>
-              <div class="project__element project__inform">
-                <%= blog.payment.name %>
-              </div>
-              <div class="project__element project__inform">
-                <%= blog.category.name %>
+        <% @blogs.each do |blog| %>
+          <li class="project__item">
+            <div class="project__link focus--box-shadow">
+              <div class="project__wrapper">
+                <div class="project__element project__inform">
+                  <%= blog.user.email %>
+                </div>
+                <div class="project__element project__inform">
+                  <%= blog.title %>
+                </div>
+                <div class="project__element project__inform">
+                  <%= blog.content %>
+                </div>
+                <div class="project__element project__inform">
+                  <%= blog.payment.name %>
+                </div>
+                <div class="project__element project__inform">
+                  <%= blog.category.name %>
+                </div>
               </div>
             </div>
-          </div>
-        </li>
-      </ul>
-    <% end %>
+          </li>
+        <% end %>
+      </ul>    
   </section>
 </main>
 <%= render 'aside' %>

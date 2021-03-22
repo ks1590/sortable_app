@@ -6,6 +6,7 @@ class BlogsController < ApplicationController
   def index
     @blogs = Blog.all.joins(:payment)
     @blogs = @blogs.joins(:category)
+    @blog = Blog.new
   end  
 
   # GET /blogs/1 or /blogs/1.json
@@ -29,9 +30,11 @@ class BlogsController < ApplicationController
       if @blog.save
         format.html { redirect_to @blog }
         format.json { render :show, status: :created, location: @blog }
+        format.js { @status = "success" }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @blog.errors, status: :unprocessable_entity }
+        format.js { @status = "fail" }
       end
     end
   end

@@ -9,6 +9,8 @@ gem 'momentjs-rails'
 
 gem 'simple_calendar'
 
+gem 'bootstrap', '~> 4.1.1'
+
 gem 'devise'
 gem 'devise-i18n'
 
