@@ -9,6 +9,12 @@ gem 'momentjs-rails'
 
 gem 'simple_calendar'
 
+gem 'bootstrap', '~> 4.1.1'
+# gem 'font-awesome-rails'
+gem 'font-awesome-sass', '~> 5.8.1'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
+
 gem 'devise'
 gem 'devise-i18n'
 

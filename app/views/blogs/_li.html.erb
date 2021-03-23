@@ -1,0 +1,23 @@
+<% @blogs.each do |blog| %>
+  <li class="project__item">            
+    <div class="project__link focus--box-shadow">
+      <div class="project__wrapper">
+        <div class="project__element project__inform">
+          <%= blog.user.email %>
+        </div>
+        <div class="project__element project__inform">
+          <%= blog.title %>
+        </div>
+        <div class="project__element project__inform">
+          <%= blog.content %>
+        </div>
+        <div class="project__element project__inform">
+          <%= blog.payment.name %>
+        </div>
+        <div class="project__element project__inform">
+          <%= blog.category.name %>
+        </div>
+      </div>
+    </div>
+  </li>
+<% end %>

@@ -1,27 +1,51 @@
-<%= form_with(model: blog, local: true) do |form| %>
-  <% if blog.errors.any? %>
+<%# <div class="modal fade" id="blog-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> %>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= form_with(model: @blog) do |form| %>
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">新しい取引</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">        
+          <div class="form-group">            
+            <%= form.label :title %>
+            <%= form.text_field :title, class: "form-control" %>            
+          </div>
+          <div class="form-group">                 
+            <%= form.label :content %>
+            <%= form.text_area :content, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= form.label :payment_id %>
+            <%= form.collection_select :payment_id, Payment.all, :id, :name, {prompt: "選択してください"} %>
+          </div>
+          <div class="form-group">
+            <%= form.label :category_id %>
+            <%= form.collection_select :category_id, Category.all, :id, :name, {prompt: "選択してください"} %>
+          </div>         
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <%= form.submit "登録する", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<%# </div> %>
+
+
+  <% if @blog.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+      <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
 
       <ul>
-      <% blog.errors.full_messages.each do |message| %>
+      <% @blog.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
