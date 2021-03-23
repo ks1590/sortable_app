@@ -1,4 +1,5 @@
 <% if @status == 'success' %>
+    $("#records").empty();
     $("#records").append("<%= j(render("li", blog: @blog)) %>");
 <%  elsif @status == 'fail' %>
     alert('error!');

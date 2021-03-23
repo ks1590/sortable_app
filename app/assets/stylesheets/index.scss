@@ -292,7 +292,7 @@ button {
 
 .main {
   width: calc(100% - 46.125rem);
-  margin: 0 3.75rem 6rem 1.875rem;
+  margin: 0 3.75rem 3rem 1.875rem;
 }
 
 @media (max-width: 1800px) {
@@ -742,7 +742,7 @@ button {
 }
 
 .project__item:not(:last-child) {
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
 .project__link {
@@ -769,13 +769,7 @@ button {
 }
 
 .project__element {
-  padding: 0 0.8rem;
-}
-
-.project__icon {
-  width: 8%;
-  max-width: 90px;
-  min-width: 80px;
+  padding: 0 0.6rem;
 }
 
 .project__inform {
@@ -807,7 +801,7 @@ button {
 
 @media (max-width: 1800px) {
   .project__link {
-    padding: 1.2rem 0.7rem;
+    padding: 1rem 0.7rem;
   }
 
   .project__element {

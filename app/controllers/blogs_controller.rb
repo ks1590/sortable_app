@@ -2,10 +2,11 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
 
+  PRE = 5
   # GET /blogs or /blogs.json
   def index
     @blogs = Blog.all.joins(:payment)
-    @blogs = @blogs.joins(:category)
+    @blogs = @blogs.joins(:category).order(created_at: :desc).page(params[:page]).per(PRE)
     @blog = Blog.new
   end  
 
@@ -24,6 +25,8 @@ class BlogsController < ApplicationController
 
   # POST /blogs or /blogs.json
   def create
+    @blogs = Blog.all.joins(:payment)
+    @blogs = @blogs.joins(:category).order(created_at: :desc).page(params[:page]).per(PRE)
     @blog = current_user.blogs.build(blog_params)
 
     respond_to do |format|
