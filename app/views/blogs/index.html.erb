@@ -4,7 +4,7 @@
 <%# <%= render 'modal' %>
   <section class="section">
     <header class="section__header">
-      <h2 class="section__title">Projects</h2>
+      <h2 class="section__title">取引履歴</h2>
       <div class="section__control">
         <button
           class="section__button focus--box-shadow"
@@ -20,23 +20,17 @@
               d="M20,8.18V3a1,1,0,0,0-2,0V8.18a3,3,0,0,0,0,5.64V21a1,1,0,0,0,2,0V13.82a3,3,0,0,0,0-5.64ZM19,12a1,1,0,1,1,1-1A1,1,0,0,1,19,12Zm-6,2.18V3a1,1,0,0,0-2,0V14.18a3,3,0,0,0,0,5.64V21a1,1,0,0,0,2,0V19.82a3,3,0,0,0,0-5.64ZM12,18a1,1,0,1,1,1-1A1,1,0,0,1,12,18ZM6,6.18V3A1,1,0,0,0,4,3V6.18a3,3,0,0,0,0,5.64V21a1,1,0,0,0,2,0V11.82A3,3,0,0,0,6,6.18ZM5,10A1,1,0,1,1,6,9,1,1,0,0,1,5,10Z"
             />
           </svg>
-        </button>
-        <%# <button
-          class="section__button section__button--painted focus--box-shadow"
-          type="button"
-          aria-label="Add New project"
-        >
-        </button> %>
-        <%# <button type="button" class="section__button section__button--painted focus--box-shadow" data-toggle="modal" data-target="#blog-modal" data-whatever="@mdo">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="presentation"><path d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z" />
-        </svg></button> %>
-        <%= link_to 'New Blog', new_blog_path, remote: true, class: "btn btn-outline-secondary" %>
+        </button>        
+          <%= link_to new_blog_path, remote: true do %>
+            <%= icon("fas", "plus fa-2x", class: "no-underline section__button section__button--painted focus--box-shadow") %>   
+          <% end %>
+        
         <div id="blog-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
       </div>
     </header>    
-      <ul class="project">
+      <ul id="records" class="project">
         <% @blogs.each do |blog| %>
-          <li class="project__item">
+          <li class="project__item">            
             <div class="project__link focus--box-shadow">
               <div class="project__wrapper">
                 <div class="project__element project__inform">
