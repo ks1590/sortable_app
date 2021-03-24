@@ -1,7 +1,8 @@
 
 <%= render 'nav' %>
 <main class="main">
-<%# <%= render 'modal' %>
+<%= render 'chart' %>
+  <%= high_chart("my_chart", @chart) %>
   <section class="section">
     <header class="section__header">
       <h2 class="section__title">取引履歴</h2>

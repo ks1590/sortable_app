@@ -8,6 +8,22 @@ class BlogsController < ApplicationController
     @blogs = Blog.all.joins(:payment)
     @blogs = @blogs.joins(:category).order(created_at: :desc).page(params[:page]).per(PRE)
     @blog = Blog.new
+
+    # (...データベースからのデータ取得処理...)
+    # ダミーのデータを用意
+    months = Category.pluck(:name)
+    product_A_sales = [ 1000, 12000, 13000,
+      1400, 12000, 50000 ]
+    # グラフ（チャート）を作成 
+    @chart = LazyHighCharts::HighChart.new("graph") do |c|
+      c.title(text: "支出内訳")
+      c.xAxis(categories: months)
+      c.yAxis(min:0,title: {text: '円'})
+      c.tooltip(valueSuffix: 'millions')
+      c.series(name: "A", data: product_A_sales)      
+      c.chart(type: "bar")   
+      c.lang(numericSymbols: "")
+    end
   end  
 
   # GET /blogs/1 or /blogs/1.json
