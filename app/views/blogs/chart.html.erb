@@ -1,0 +1,64 @@
+<%= render 'nav' %>
+<div class="wrapper">
+  <section>
+    <header class="section__header">
+      <h2 class="section__title">Teams</h2>
+      <a href="#" class="section__link">View all</a>
+    </header>
+    <ul class="team">
+      <li class="team__item">
+        <a class="team__link focus--box-shadow" href="#">
+          <div class="team__inform">
+            <p class="team__name">Product presentation</p>
+            <time class="date" datetime="2020-05-05T10:00:00">05 May, 2020</time>
+          </div>
+        </a>
+      </li>
+      <li class="team__item">
+        <a class="team__link focus--box-shadow" href="#">
+          <div class="team__inform">
+            <p class="team__name">New project</p>
+            <time class="date" datetime="2020-05-01T10:00:00">01 May, 2020</time>
+          </div>
+        </a>
+      </li>
+      <li class="team__item">
+        <a class="team__link focus--box-shadow" href="#">
+          <div class="team__inform">
+            <p class="team__name">Product presentation</p>
+            <time class="date" datetime="2020-05-05T10:00:00">05 May, 2020</time>
+          </div>
+        </a>
+      </li>
+      <li class="team__item">
+        <a class="team__link focus--box-shadow" href="#">
+          <div class="team__inform">
+            <p class="team__name">Product presentation</p>
+            <time class="date" datetime="2020-05-05T10:00:00">05 May, 2020</time>
+          </div>
+        </a>
+      </li>
+      <li class="team__item">
+        <a class="team__link focus--box-shadow" href="#">
+          <div class="team__inform">
+            <p class="team__name">Product presentation</p>
+            <time class="date" datetime="2020-05-05T10:00:00">05 May, 2020</time>
+          </div>
+        </a>
+      </li>
+    </ul>
+    <div></div>
+    <ul class="team">
+      <li class="team__item">
+        <%= high_chart("chart_pie", @chart_pie) %>
+      </li>
+      <li class="team__item">
+        <%= high_chart("chart_pie2", @chart_pie2) %>
+      </li>            
+      <li class="team__item">
+        <%= high_chart("chart_pie3", @chart_pie3) %>
+      </li>
+    </ul>
+    <%= high_chart("chart_column", @chart_column) %>
+  </section>
+</div>
