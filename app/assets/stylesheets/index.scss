@@ -57,15 +57,9 @@ h6 {
   font-size: 1.8rem;
 }
 
-svg,
 img {
   max-width: 100%;
   max-height: 100%;
-}
-
-svg path {
-  fill: var(--dune);
-  transition: fill 0.3s ease;
 }
 
 a {
@@ -520,14 +514,6 @@ button {
   background-color: var(--dune);
 }
 
-.section__button svg {
-  width: 2rem;
-}
-
-.section__button--painted svg path {
-  fill: var(--alabaster);
-}
-
 .section__button--painted:focus {
   box-shadow: 0 0 0 3px var(--dune-rgba-5);
 }
@@ -535,10 +521,6 @@ button {
 @media (hover: hover) {
   .section__button:hover {
     background-color: var(--true-v);
-  }
-
-  .section__button:hover svg path {
-    fill: var(--alabaster);
   }
 }
 
@@ -619,10 +601,6 @@ button {
   .team__link:hover .team__name,
   .team__link:hover .date {
     color: var(--alabaster);
-  }
-
-  .team__link:hover .setting svg path {
-    fill: var(--alabaster);
   }
 
   .team__link:hover .photo__item {
@@ -925,10 +903,6 @@ button {
   font-size: 0;
 }
 
-.icon svg path {
-  fill: var(--alabaster);
-}
-
 .icon--viking {
   background-color: var(--viking);
 }
@@ -980,16 +954,6 @@ button {
 
 .setting--rotate {
   transform: rotate(90deg);
-}
-
-@media (hover: hover) {
-  .setting:hover svg path {
-    fill: var(--true-v);
-  }
-}
-
-.setting svg path {
-  fill: var(--dune);
 }
 
 @media (max-width: 1400px) {

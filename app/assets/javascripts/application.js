@@ -17,8 +17,46 @@
 //= require moment
 //= require fullcalendar
 //= require bootstrap-sprockets
+//= require highcharts/highcharts
+//= require highcharts/highcharts-more
+//= require highcharts/highstock
 //= require_tree .
 
+$(function () {
+  Highcharts.setOptions({
+    lang: {
+      thousandsSep: ",",
+      numericSymbols: [null]
+    },
+    colors: ['#4572A7', '#AA4643', '#89A54E', '#80699B', '#3D96AE', '#DB843D', '#92A8CD', '#A47D7C', '#B5CA92'],
+    plotOptions: {
+      pie: {
+        // 円グラフの内側のサイズ
+        innerSize: '50%'
+      }
+    },
+    responsive: {
+      rules: [{
+        condition: {
+          maxWidth: 300
+        },
+        chartOptions: {
+          plotOptions: {
+            series: {
+              dataLabels: {
+                format: '<b>{point.name}</b>'
+              }
+            }
+          }
+        }
+      }]
+    }
+  });
+});
+$('#graphique-repartition-budgetaire').highcharts({
+  // my graphic code is here....
+});
+});
 
 $(document).ready(function () {
 

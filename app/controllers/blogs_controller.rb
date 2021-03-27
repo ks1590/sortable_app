@@ -8,7 +8,156 @@ class BlogsController < ApplicationController
     @blogs = Blog.all.joins(:payment)
     @blogs = @blogs.joins(:category).order(created_at: :desc).page(params[:page]).per(PRE)
     @blog = Blog.new
-  end  
+
+    # (...データベースからのデータ取得処理...)
+    # ダミーのデータを用意
+    months = Category.pluck(:name)
+    product_A_sales = [ 1000, 12000, 13000,
+      1400, 12000, 50000 ]
+    # グラフ（チャート）を作成 
+    @chart = LazyHighCharts::HighChart.new("graph") do |c|
+      c.title(text: "支出内訳")
+      c.xAxis(categories: months)
+      c.yAxis(min:0,title: {text: '円'})
+      c.tooltip(valueSuffix: 'millions')
+      c.series(name: "A", data: product_A_sales)
+      # c.series({name: "A", y: 1000,name: "B", y: 1000})
+      c.chart(type: "bar")
+    end
+  end
+
+  def chart
+    months = Category.pluck(:name)
+    product_A_sales = [ 1000, 12000, 13000,
+      1400, 12000, 50000 ]
+    # グラフ（チャート）を作成 
+    # @chart = LazyHighCharts::HighChart.new("graph") do |c|
+    #   c.title(text: "支出内訳")
+    #   c.xAxis(categories: months)
+    #   c.yAxis(min:0,title: {text: '円'})
+    #   c.tooltip(valueSuffix: 'millions')
+    #   c.series(name: "A", data: product_A_sales)
+    #   # c.series({name: "A", y: 1000,name: "B", y: 1000})
+    #   c.chart(type: "bar")
+    #   c.lang({numericSymbols: nil})
+    # end
+
+    @chart_column = LazyHighCharts::HighChart.new("graph") do |c|
+      c.title(text: "4-9月売上")
+      # X軸の名称を設定 '月'
+      c.xAxis(categories: months, title: {text: '月'})       # Y軸の名称を設定 '円'
+      c.yAxis(title: {text: '円'})
+      c.series(name: "A", data: product_A_sales)
+      # c.series(name: "B", data: product_B_sales)
+      # 判例を右側に配置
+      c.legend(align: 'right', verticalAlign: 'top', 
+      x: -100, y: 180, layout: 'vertical')      
+      c.chart(type: "column")
+    end
+
+    category = Category.pluck(:name)
+    @chart_pie = LazyHighCharts::HighChart.new("graph") do |c|
+      c.title(text: "製品別上期売上")
+      c.series({
+        colorByPoint: true,
+        # ここでは各月の売上額合計をグラフの値とする
+        data: [{
+        name: category[0],
+        y: 1000
+        }, {
+        name: category[1],
+        y: 3500
+        }, {
+        name: category[2], 
+        y: 2000
+        }, {
+        name: category[3], 
+        y: 2500
+        }, {
+        name: category[4], 
+        y: 4500
+        }]
+      })
+      c.plotOptions(pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+          enabled: true,
+          format: '{point.name}: {point.percentage:.1f} %',
+        }
+      })
+      # グラフの種類として「パイチャート」を指定
+      c.chart(type: "pie")
+    end
+
+    @chart_pie2 = LazyHighCharts::HighChart.new("graph") do |c|
+      c.title(text: "製品別上期売上")
+      c.series({
+        colorByPoint: true,
+        # ここでは各月の売上額合計をグラフの値とする
+        data: [{
+        name: category[0],
+        y: 1000
+        }, {
+        name: category[1],
+        y: 500
+        }, {
+        name: category[2], 
+        y: 2000
+        }, {
+        name: category[3], 
+        y: 2500
+        }, {
+        name: category[4], 
+        y: 500
+        }]
+      })
+      c.plotOptions(pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+          enabled: true,
+          format: '{point.name}: {point.percentage:.1f} %',
+        }
+      })
+      # グラフの種類として「パイチャート」を指定
+      c.chart(type: "pie")
+    end
+
+    @chart_pie3 = LazyHighCharts::HighChart.new("graph") do |c|
+      c.title(text: "製品別上期売上")
+      c.series({
+        colorByPoint: true,
+        # ここでは各月の売上額合計をグラフの値とする
+        data: [{
+        name: category[0],
+        y: 1000
+        }, {
+        name: category[1],
+        y: 500
+        }, {
+        name: category[2], 
+        y: 2000
+        }, {
+        name: category[3], 
+        y: 2500
+        }, {
+        name: category[4], 
+        y: 500
+        }]
+      })
+      c.plotOptions(pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+          enabled: true,
+          format: '{point.name}: {point.percentage:.1f} %',
+        }
+      })
+      # グラフの種類として「パイチャート」を指定
+      c.chart(type: "pie")
+    end
+  end
 
   # GET /blogs/1 or /blogs/1.json
   def show

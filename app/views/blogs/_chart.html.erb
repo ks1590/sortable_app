@@ -1,0 +1,55 @@
+<div id="container"></div>
+<script type="text/javascript">
+$(function () {
+ var chart;
+   $(document).ready(function() {
+     chart = new Highcharts.Chart({
+       chart: {
+                renderTo: 'container'
+              },
+       credits: {
+                enabled: false
+               },
+       title: {
+                text: 'サンプルグラフ1'
+            },
+       subtitle: {
+                text: 'サンプルサブタイトル1'
+                 },
+       xAxis: [{
+                categories: ['2011年度', '2012年度', '2013年度','2014年度','2015年度','2016年度']
+            }],
+       yAxis: { 
+                min:0, //y軸最小値
+　　　　　　　　 max:150, //y軸最大値
+               title: {
+                    text: ''
+                 }
+                },
+       legend:{
+               enabled:false //凡例の表示
+               },
+      plotOptions: {
+              column: {
+                    stacking:'normal',
+                    dataLabels: {
+                                 enabled:true,								         color:'#ffffff'
+                              }
+                }
+            },
+       series: [ //seriesの個別オプションを指定
+               {
+                type: 'column',
+                name: '',
+                color: '#c4e0ff',
+                data: [100.0, 111.0, 103.1,116.5,
+ 116.8,{color:'#65acfc', y:120.0}], 
+               dataLabels: {
+                           enabled:true,
+                           color: '#000000'
+                            }
+               }]
+        });
+    });  
+});
+</script>
