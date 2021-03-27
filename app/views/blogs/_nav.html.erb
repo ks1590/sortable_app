@@ -1,10 +1,14 @@
 <nav class="nav">
   <ul class="nav__list" role="menubar">
-    <li class="nav__item nav__item--isActive">    
-      <%= icon("fas", "home fa-3x", class: "nav__icon") %>
+    <li class="nav__item nav__item--isActive">
+      <%= link_to blogs_path, method: :get do %>    
+          <%= icon("fas", "home fa-3x", class: "nav__icon") %>      
+      <% end %>
     </li>
     <li class="nav__item">
-      <%= icon("fas", "chart-pie fa-3x", class: "nav__icon") %>            
+      <%= link_to chart_blogs_path, method: :get do %> 
+        <%= icon("fas", "chart-pie fa-3x", class: "nav__icon") %>
+      <% end %>         
     </li>
     <li class="nav__item">
       <%= icon("fas", "calendar-alt fa-3x", class: "nav__icon") %>
