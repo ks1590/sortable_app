@@ -3,19 +3,19 @@
     <div class="project__link focus--box-shadow">
       <div class="project__wrapper">
         <div class="project__element project__inform">
-          <%= blog.user.email %>
+          <%= link_to blog.user.email, edit_blog_path(blog), remote:true %>          
         </div>
         <div class="project__element project__inform">
-          <%= blog.title %>
+          <%= link_to blog.title, edit_blog_path(blog), remote:true %>          
         </div>
         <div class="project__element project__inform">
-          <%= blog.content %>
+          <%= link_to blog.content, edit_blog_path(blog), remote:true %>
         </div>
         <div class="project__element project__inform">
-          <%= blog.payment.name %>
+          <%= link_to blog.payment.name, edit_blog_path(blog), remote:true %>          
         </div>
         <div class="project__element project__inform">
-          <%= blog.category.name %>
+          <%= link_to blog.category.name, edit_blog_path(blog), remote:true %>          
         </div>
       </div>
     </div>
