@@ -77,3 +77,8 @@ ul li a:hover {
   background: none;
   color: #000;
 }
+
+.project__link .focus--box-shadow:hover::after {
+  content: "";
+  border: 3px solid green;
+}
