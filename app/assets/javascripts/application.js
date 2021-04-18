@@ -19,7 +19,6 @@
 //= require bootstrap-sprockets
 //= require highcharts/highcharts
 //= require highcharts/highcharts-more
-//= require highcharts/highstock
 //= require_tree .
 
 $(function () {
@@ -55,7 +54,6 @@ $(function () {
 });
 $('#graphique-repartition-budgetaire').highcharts({
   // my graphic code is here....
-});
 });
 
 $(document).ready(function () {
