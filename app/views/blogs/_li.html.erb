@@ -1,21 +1,18 @@
 <% @blogs.each do |blog| %>
   <li class="project__item">            
     <div class="project__link focus--box-shadow">
-      <div class="project__wrapper">
+      <div class="project__wrapper">        
         <div class="project__element project__inform">
-          <%= link_to blog.user.email, edit_blog_path(blog), remote:true %>          
-        </div>
-        <div class="project__element project__inform">
-          <%= link_to blog.title, edit_blog_path(blog), remote:true %>          
-        </div>
-        <div class="project__element project__inform">
-          <%= link_to blog.content, edit_blog_path(blog), remote:true %>
+          <%= link_to blog.date, edit_blog_path(blog), remote:true %>          
         </div>
         <div class="project__element project__inform">
           <%= link_to blog.payment.name, edit_blog_path(blog), remote:true %>          
         </div>
         <div class="project__element project__inform">
           <%= link_to blog.category.name, edit_blog_path(blog), remote:true %>          
+        </div>
+        <div class="project__element project__inform">
+          <%= link_to blog.amount, edit_blog_path(blog), remote:true %>
         </div>
       </div>
     </div>
