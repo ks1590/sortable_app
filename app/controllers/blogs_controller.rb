@@ -193,13 +193,18 @@ class BlogsController < ApplicationController
 
   # PATCH/PUT /blogs/1 or /blogs/1.json
   def update
+    @blogs = Blog.all.joins(:payment)
+    @blogs = @blogs.joins(:category).order(created_at: :desc).page(params[:page]).per(PRE)
+    @blog = current_user.blogs.build(blog_params)
     respond_to do |format|
       if @blog.update(blog_params)
         format.html { redirect_to @blog }
         format.json { render :show, status: :ok, location: @blog }
+        format.js { @status = "success" }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @blog.errors, status: :unprocessable_entity }
+        format.js { @status = "fail" }
       end
     end
   end
@@ -221,6 +226,6 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title, :content, :payment_id, :category_id)
+      params.require(:blog).permit(:date, :payment_id, :category_id, :amount)
     end
 end

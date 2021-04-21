@@ -1,38 +1,72 @@
 
 <%= render 'nav' %>
 <main class="main">
-  <%= high_chart("my_chart", @chart) %>
-  <%= link_to "グラフ一覧", chart_blogs_path %>
-  <section class="section">
-    <header class="section__header">
-      <h2 class="section__title">取引履歴</h2>
-      <div class="section__control">
-        <button
-          class="section__button focus--box-shadow"
-          type="button"
-          aria-label="Filter projects"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            role="presentation"
-          >
-            <path
-              d="M20,8.18V3a1,1,0,0,0-2,0V8.18a3,3,0,0,0,0,5.64V21a1,1,0,0,0,2,0V13.82a3,3,0,0,0,0-5.64ZM19,12a1,1,0,1,1,1-1A1,1,0,0,1,19,12Zm-6,2.18V3a1,1,0,0,0-2,0V14.18a3,3,0,0,0,0,5.64V21a1,1,0,0,0,2,0V19.82a3,3,0,0,0,0-5.64ZM12,18a1,1,0,1,1,1-1A1,1,0,0,1,12,18ZM6,6.18V3A1,1,0,0,0,4,3V6.18a3,3,0,0,0,0,5.64V21a1,1,0,0,0,2,0V11.82A3,3,0,0,0,6,6.18ZM5,10A1,1,0,1,1,6,9,1,1,0,0,1,5,10Z"
-            />
-          </svg>
-        </button>        
-          <%= link_to new_blog_path, remote: true do %>
-            <%= icon("fas", "plus fa-2x", class: "no-underline section__button section__button--painted focus--box-shadow") %>   
-          <% end %>
-        
-        <div id="blog-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+  <%# <%= high_chart("my_chart", @chart) %>
+  <ul class="team">
+  <li class="team__item">
+    <a class="team__link focus--box-shadow" href="#">
+      <div class="team__inform">
+        <p class="team__name">今月の支出</p>
+        <time class="date" datetime="2020-05-05T10:00:00">05 May, 2020</time>
       </div>
-    </header>    
-      <ul id="records" class="project">
-        <%= render 'li' %>
-      </ul> 
-      <%= paginate @blogs %>   
-  </section>
+    </a>
+  </li>
+  <li class="team__item">
+    <a class="team__link focus--box-shadow" href="#">
+      <div class="team__inform">
+        <p class="team__name">今月の収入</p>
+        <time class="date" datetime="2020-05-01T10:00:00">01 May, 2020</time>
+      </div>
+    </a>
+  </li>
+  <li class="team__item">
+    <a class="team__link focus--box-shadow" href="#">
+      <div class="team__inform">
+        <p class="team__name">先月の支出</p>
+        <time class="date" datetime="2020-05-05T10:00:00">05 May, 2020</time>
+      </div>
+    </a>
+  </li>
+  <li class="team__item">
+    <a class="team__link focus--box-shadow" href="#">
+      <div class="team__inform">
+        <p class="team__name">先月の収入</p>
+        <time class="date" datetime="2020-05-05T10:00:00">05 May, 2020</time>
+      </div>
+    </a>
+  </li>
+</ul>
+<br>
+<section class="section">
+  <header class="section__header">
+    <h2 class="section__title">取引履歴</h2>
+    <div class="section__control">
+      <button
+        class="section__button focus--box-shadow"
+        type="button"
+        aria-label="Filter projects"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          role="presentation"
+        >
+          <path
+            d="M20,8.18V3a1,1,0,0,0-2,0V8.18a3,3,0,0,0,0,5.64V21a1,1,0,0,0,2,0V13.82a3,3,0,0,0,0-5.64ZM19,12a1,1,0,1,1,1-1A1,1,0,0,1,19,12Zm-6,2.18V3a1,1,0,0,0-2,0V14.18a3,3,0,0,0,0,5.64V21a1,1,0,0,0,2,0V19.82a3,3,0,0,0,0-5.64ZM12,18a1,1,0,1,1,1-1A1,1,0,0,1,12,18ZM6,6.18V3A1,1,0,0,0,4,3V6.18a3,3,0,0,0,0,5.64V21a1,1,0,0,0,2,0V11.82A3,3,0,0,0,6,6.18ZM5,10A1,1,0,1,1,6,9,1,1,0,0,1,5,10Z"
+          />
+        </svg>
+      </button>        
+        <%= link_to new_blog_path, remote: true do %>
+          <%= icon("fas", "plus fa-2x", class: "no-underline section__button section__button--painted focus--box-shadow") %>   
+        <% end %>
+      
+      <div id="blog-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+    </div>
+  </header>    
+    <ul id="records" class="project">
+      <%= render 'li' %>
+    </ul> 
+    <%= paginate @blogs %>   
+</section>
 </main>
 <%= render 'aside' %>

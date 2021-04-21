@@ -573,11 +573,11 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 3rem;
+  margin-bottom: 10rem;
 }
 
 .team__item {
-  width: calc(100% / 3);
+  width: calc(100% / 4);
   margin: 0 0.6rem;
 }
 
@@ -627,12 +627,12 @@ button {
   }
 
   .team__item {
-    width: calc(100% / 2);
+    width: calc(100% / 4);
   }
 
-  .team__item:nth-child(3n) {
-    display: none;
-  }
+  // .team__item:nth-child(3n) {
+  //   display: none;
+  // }
 
   .team__link {
     padding: 1.8rem 1.6rem;
@@ -653,13 +653,18 @@ button {
 }
 
 @media (max-width: 768px) {
+  .team {
+    display: flex;
+    flex-direction: column;    
+  }
   .team__item {
     width: 100%;
+    margin-bottom: 5px;
   }
 
-  .team__item:nth-child(2n) {
-    display: none;
-  }
+  // .team__item:nth-child(2n) {
+  //   display: none;
+  // }
 }
 
 /* Photo */
@@ -715,10 +720,6 @@ button {
 }
 
 /* Project */
-.record-icon {
-  margin-right: 10px;
-}
-
 .project__item:not(:last-child) {
   margin-bottom: 0.5rem;
 }
@@ -728,13 +729,13 @@ button {
   display: block;
   width: 100%;
   background-color: var(--alabaster);
-  padding: 1.5rem 0.7rem;
+  padding: 1rem 0.7rem;
   border-radius: 10px;
   transition: background-color 0.3s ease;
 }
 
 @media (hover: hover) {
-  .project__link:hover .project__inform-name {
+  .project__link:hover .project__inform {
     color: var(--blue-violet);
   }
 }
@@ -746,25 +747,26 @@ button {
   width: 100%;
 }
 
-.project__element {
-  padding: 0 0.6rem;
-}
+// .project__element {
+//   padding: 0 0.6rem;
+// }
 
 .project__inform {
-  width: 28%;
+  width: 30%;
+  margin: 5px;
 }
 
-.project__date {
-  width: 20%;
-}
+// .project__date {
+//   width: 30%;
+// }
 
-.project__photo {
-  width: 18%;
-}
+// .project__photo {
+//   width: 20%;
+// }
 
-.project__status {
-  width: 12%;
-}
+// .project__status {
+//   width: 20%;
+// }
 
 .project__setting {
   width: 8%;
@@ -782,9 +784,9 @@ button {
     padding: 1rem 0.7rem;
   }
 
-  .project__element {
-    padding: 0 0.5rem;
-  }
+  // .project__element {
+  //   padding: 0 0.5rem;
+  // }
 
   .project__icon {
     max-width: 80px;
@@ -809,7 +811,8 @@ button {
 
   .project__inform {
     order: 2;
-    width: calc(100% - 90px);
+    // width: calc(100% - 90px);
+    width: 100%;
     margin-bottom: 1.5rem;
     padding-right: 4rem;
   }
@@ -847,9 +850,9 @@ button {
     padding: 1rem 0.5rem;
   }
 
-  .project__element {
-    padding: 0 0.3rem;
-  }
+  // .project__element {
+  //   padding: 0 0.3rem;
+  // }
 
   .project__inform {
     padding-right: 3rem;
