@@ -13,16 +13,16 @@ initialize_calendar = function () {
     eventLimit: true,
     editable: true,
     disableDragging: true,
-    events: "/events.json",
+    events: "/blogs.json",
     color: 'yellow',
     textColor: 'black',
 
     select: function (start) {
-      $.getScript("/events/new", function () {
+      $.getScript("/blogs/new", function () {
         let str = moment(start).format('YYYY-MM-DD');
         console.log(str);
         $(".start_hidden").val(str);
-        $('#new_event').modal('show');
+        $('#blog-modal').modal('show');
       })
     },
 
@@ -32,7 +32,7 @@ initialize_calendar = function () {
         let str = moment(event).format('YYYY-MM-DD');
         console.log(event);
         // $(".start_hidden").val(event);
-        $('#edit_event').modal('show');
+        $('#blog-modal').modal('show');
         // $.ajax({
         //   url: event.update_url,
         //   data: event_data,

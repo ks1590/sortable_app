@@ -218,6 +218,11 @@ class BlogsController < ApplicationController
     end
   end
 
+  def calendar
+    @blog = Blog.new
+    @blogs = Blog.all.joins(:category)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog

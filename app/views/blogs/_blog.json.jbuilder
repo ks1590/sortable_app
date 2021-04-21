@@ -1,2 +1,4 @@
-json.extract! blog, :id, :title, :content, :created_at, :updated_at
-json.url blog_url(blog, format: :json)
+json.date blog.date
+json.title "#{blog.category} : #{blog.amount}円"
+json.update_url blog_path(blog, method: :patch)
+json.edit_url edit_blog_path(blog)
