@@ -13,7 +13,7 @@ initialize_calendar = function () {
     eventLimit: true,
     editable: true,
     disableDragging: true,
-    events: "/blogs.json",
+    events: "/blogs/calendar.json",
     color: 'yellow',
     textColor: 'black',
 

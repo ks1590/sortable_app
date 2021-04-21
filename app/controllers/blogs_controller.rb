@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
 
-  PRE = 5
+  PRE = 10
   # GET /blogs or /blogs.json
   def index
     @blogs = Blog.all.joins(:payment)
@@ -178,10 +178,11 @@ class BlogsController < ApplicationController
     @blogs = @blogs.joins(:category).order(created_at: :desc).page(params[:page]).per(PRE)
     @blog = current_user.blogs.build(blog_params)
 
+    # @blog.save
     respond_to do |format|
       if @blog.save
         format.html { redirect_to @blog }
-        format.json { render :show, status: :created, location: @blog }
+        # format.json { render :json, status: :created, location: @blog }
         format.js { @status = "success" }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -220,7 +221,7 @@ class BlogsController < ApplicationController
 
   def calendar
     @blog = Blog.new
-    @blogs = Blog.all.joins(:category)
+    @blogs = Blog.all
   end
 
   private
