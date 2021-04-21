@@ -11,7 +11,9 @@
       <% end %>         
     </li>
     <li class="nav__item">
-      <%= icon("fas", "calendar-alt fa-3x", class: "nav__icon") %>
+      <%= link_to calendar_blogs_path, method: :get do %> 
+        <%= icon("fas", "calendar-alt fa-3x", class: "nav__icon") %>
+      <% end %>
     </li>
     <li class="nav__item">
       <%= icon("fas", "cog fa-3x", class: "nav__icon") %>
