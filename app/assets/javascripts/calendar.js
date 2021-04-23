@@ -13,12 +13,12 @@ initialize_calendar = function () {
     eventLimit: true,
     editable: true,
     disableDragging: true,
-    events: "/blogs/calendar.json",
+    events: "/blogs.json",
     color: 'yellow',
     textColor: 'black',
 
     select: function (start) {
-      $.getScript("/blogs/new", function () {
+      $.getScript("/calendar/blogs/new", function () {
         let str = moment(start).format('YYYY-MM-DD');
         console.log(str);
         $(".start_hidden").val(str);

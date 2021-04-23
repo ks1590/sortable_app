@@ -18,7 +18,6 @@
 //= require fullcalendar
 //= require bootstrap-sprockets
 //= require highcharts/highcharts
-//= require highcharts/highcharts-more
 //= require_tree .
 
 $(function () {

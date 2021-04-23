@@ -196,7 +196,6 @@ class BlogsController < ApplicationController
   def update
     @blogs = Blog.all.joins(:payment)
     @blogs = @blogs.joins(:category).order(created_at: :desc).page(params[:page]).per(PRE)
-    @blog = current_user.blogs.build(blog_params)
     respond_to do |format|
       if @blog.update(blog_params)
         format.html { redirect_to @blog }

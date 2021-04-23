@@ -3,11 +3,14 @@ Rails.application.routes.draw do
   devise_for :users
   root "blogs#index"
 
+  namespace :calendar do
+    resources :blogs
+  end
+  
   resources :blogs do
     collection do
       get :chart
-      get :calendar
+      # get :calendar
     end
   end
-  # mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end
