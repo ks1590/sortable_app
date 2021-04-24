@@ -18,100 +18,99 @@
 //= require fullcalendar
 //= require bootstrap-sprockets
 //= require highcharts/highcharts
-//= require highcharts/highcharts-more
 //= require_tree .
 
-$(function () {
-  Highcharts.setOptions({
-    lang: {
-      thousandsSep: ",",
-      numericSymbols: [null]
-    },
-    colors: ['#4572A7', '#AA4643', '#89A54E', '#80699B', '#3D96AE', '#DB843D', '#92A8CD', '#A47D7C', '#B5CA92'],
-    plotOptions: {
-      pie: {
-        // 円グラフの内側のサイズ
-        innerSize: '50%'
-      }
-    },
-    responsive: {
-      rules: [{
-        condition: {
-          maxWidth: 300
-        },
-        chartOptions: {
-          plotOptions: {
-            series: {
-              dataLabels: {
-                format: '<b>{point.name}</b>'
-              }
-            }
-          }
-        }
-      }]
-    }
-  });
-});
-$('#graphique-repartition-budgetaire').highcharts({
-  // my graphic code is here....
-});
+// $(function () {
+//   Highcharts.setOptions({
+//     lang: {
+//       thousandsSep: ",",
+//       numericSymbols: [null]
+//     },
+//     colors: ['#4572A7', '#AA4643', '#89A54E', '#80699B', '#3D96AE', '#DB843D', '#92A8CD', '#A47D7C', '#B5CA92'],
+//     plotOptions: {
+//       pie: {
+//         // 円グラフの内側のサイズ
+//         innerSize: '50%'
+//       }
+//     },
+//     responsive: {
+//       rules: [{
+//         condition: {
+//           maxWidth: 300
+//         },
+//         chartOptions: {
+//           plotOptions: {
+//             series: {
+//               dataLabels: {
+//                 format: '<b>{point.name}</b>'
+//               }
+//             }
+//           }
+//         }
+//       }]
+//     }
+//   });
+// });
+// $('#graphique-repartition-budgetaire').highcharts({
+//   // my graphic code is here....
+// });
 
-$(document).ready(function () {
+// $(document).ready(function () {
 
-  create_event = function (title, start, end) {
-    $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
-      var token;
-      if (!options.crossDomain) {
-        token = $('meta[name="csrf-token"]').attr('content');
-        if (token) {
-          return jqXHR.setRequestHeader('X-CSRF-Token', token);
-        }
-      }
-    });
-    $.ajax({
-      type: "post",
-      url: "/events/create",
-      data: {
-        title: title,
-        start: start.toISOString(),
-        end: end.toISOString()
-      }
-    }).done(function (data) {
-      alert("登録しました!");
-    }).fail(function (data) {
-      alert("登録できませんでした。");
-    });
-  };
+//   create_event = function (title, start, end) {
+//     $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+//       var token;
+//       if (!options.crossDomain) {
+//         token = $('meta[name="csrf-token"]').attr('content');
+//         if (token) {
+//           return jqXHR.setRequestHeader('X-CSRF-Token', token);
+//         }
+//       }
+//     });
+//     $.ajax({
+//       type: "post",
+//       url: "/events/create",
+//       data: {
+//         title: title,
+//         start: start.toISOString(),
+//         end: end.toISOString()
+//       }
+//     }).done(function (data) {
+//       alert("登録しました!");
+//     }).fail(function (data) {
+//       alert("登録できませんでした。");
+//     });
+//   };
 
-  $('#calendar').fullCalendar({
-    header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'month,agendaWeek,agendaDay'
-    },
-    navLinks: true,
-    selectable: true,
-    selectHelper: true,
-    select: function (start, end) {
-      let title = prompt('新しい取引を追加');
-      var eventData;
-      if (title) {
-        eventData = {
-          title: title,
-          start: start,
-          end: end
-        };
-        $('#calendar').fullCalendar('renderEvent', eventData, true);
-        $('#calendar').fullCalendar('unselect');
-        create_event(title, start, end);
-      }
-    },
-    timezone: 'UTC',
-    events: '/events.json',
-    editable: true
-  });
+//   $('#calendar').fullCalendar({
+//     header: {
+//       left: 'prev,next today',
+//       center: 'title',
+//       right: 'month,agendaWeek,agendaDay'
+//     },
+//     navLinks: true,
+//     selectable: true,
+//     selectHelper: true,
+//     select: function (start, end) {
+//       let title = prompt('新しい取引を追加');
+//       var eventData;
+//       if (title) {
+//         eventData = {
+//           title: title,
+//           start: start,
+//           end: end
+//         };
+//         $('#calendar').fullCalendar('renderEvent', eventData, true);
+//         $('#calendar').fullCalendar('unselect');
+//         create_event(title, start, end);
+//       }
+//     },
+//     timezone: 'UTC',
+//     events: '/events.json',
+//     editable: true
+//   });
 
-});
+// });
 
 // $(function () {
 //   function eventCalendar() {

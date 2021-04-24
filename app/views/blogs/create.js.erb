@@ -1,7 +1,12 @@
 <% if @status == 'success' %>
-    $("#records").empty();
-    $("#records").append("<%= j(render("li", blog: @blog)) %>");
+  $("#records").empty();
+  $("#records").append("<%= j(render("li", blog: @blog)) %>");
 <%  elsif @status == 'fail' %>
-    alert('error!');
+  alert('error!');
 <% end %>
+  $("#calendar").fullCalendar(
+    'renderEvent',
+    $.parseJSON("<%=j render(@event, format: :json).html_safe %>"),true
+  );  
+
 $("#blog-modal").modal("hide");
