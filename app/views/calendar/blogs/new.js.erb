@@ -1,2 +1,2 @@
-$('#remote_container').html('<%= j render "new" %>');
-$('#new_event').modal('show');
+$("#blog-modal").html("<%= escape_javascript(render "form") %>")
+$("#blog-modal").modal("show")

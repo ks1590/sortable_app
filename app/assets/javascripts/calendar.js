@@ -3,17 +3,16 @@ initialize_calendar = function () {
   $('#calendar').fullCalendar({
     selectable: true,
     dayMaxEvents: true,
-    header: {
-      left: 'prev,next today',
-      center: 'title',
-      // right: 'month'
-    },
+    // header: {
+    //   left: 'prev,next today',
+    //   center: 'title',
+    // },
     selectable: true,
     selectHelper: true,
     eventLimit: true,
     editable: true,
     disableDragging: true,
-    events: "/blogs.json",
+    events: "/calendar/blogs.json",
     color: 'yellow',
     textColor: 'black',
 

@@ -2,10 +2,9 @@ class Calendar::BlogsController < ApplicationController
   before_action :set_blog, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
 
-  PRE = 10
   # GET /blogs or /blogs.json
   def index
-    @events = Blog.all.joins(:payment)    
+    @events = Blog.all.joins(:payment).joins(:category) 
     @event = Blog.new
   end
 
@@ -26,18 +25,18 @@ class Calendar::BlogsController < ApplicationController
   def create    
     @event = current_user.blogs.build(blog_params)
 
-    # @blog.save
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event }
-        format.json { render :json, status: :created, location: @event }
-        format.js { @status = "success" }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-        format.js { @status = "fail" }
-      end
-    end
+    # # @blog.save
+    # respond_to do |format|
+    #   if @event.save
+    #     format.html { redirect_to @event }
+    #     format.json { render :json, status: :created, location: @event }
+    #     format.js { @status = "success" }
+    #   else
+    #     format.html { render :new, status: :unprocessable_entity }
+    #     format.json { render json: @event.errors, status: :unprocessable_entity }
+    #     format.js { @status = "fail" }
+    #   end
+    # end
   end
 
   def update
